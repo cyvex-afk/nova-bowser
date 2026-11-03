@@ -1,0 +1,150 @@
+<!doctype html>
+<!--
+  NOVA DOWNLOAD SITE — one file, no dependencies. Host anywhere (GitHub Pages, Netlify, Cloudflare Pages).
+  Edit CONFIG at the bottom: download links, SHA-256 (PowerShell: Get-FileHash .\NovaSetup.exe), contact.
+-->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nova — the private browser</title>
+<meta name="description" content="Nova is a fast Chromium-based browser with built-in tracker blocking, Tor windows, VPN support, download scanning, a Panic Wipe button and the productivity tools you expect.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314141c'/%3E%3Cpath d='M16 48V16h8l16 22V16h8v32h-8L24 26v22z' fill='%23fa1e4e'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#0b0b11;--card:#15151e;--line:#262634;--fg:#ececf3;--mut:#9a9aad;--acc:#fa1e4e}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 "Segoe UI",system-ui,sans-serif;overflow-x:hidden}
+a{color:inherit}.w{max-width:1100px;margin:0 auto;padding:0 22px;position:relative}
+nav{position:sticky;top:0;z-index:20;background:rgba(11,11,17,.8);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .w{display:flex;align-items:center;gap:26px;height:62px}.logo{font-weight:800;font-size:22px;text-decoration:none}.logo b{color:var(--acc)}
+nav a.l{color:var(--mut);text-decoration:none;font-size:15px}nav a.l:hover{color:#fff}.sp{flex:1}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--acc);color:#fff;border:0;border-radius:12px;padding:13px 26px;font-weight:600;font-size:16px;font-family:inherit;text-decoration:none;cursor:pointer;box-shadow:0 10px 30px -10px var(--acc);transition:.2s}
+.btn:hover{transform:translateY(-2px) scale(1.02)}.btn.g{background:transparent;border:1px solid var(--line);box-shadow:none}.btn.s{padding:9px 18px;font-size:14px}
+.hero{position:relative;padding:76px 0 30px;text-align:center;overflow:hidden}#globe{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+h1{font-size:clamp(36px,6.4vw,68px);line-height:1.06;margin:0 0 18px;letter-spacing:-1.5px}h1 em{font-style:normal;color:var(--acc);text-shadow:0 0 40px rgba(250,30,78,.6)}
+.sub{max-width:680px;margin:0 auto 30px;color:#b4b4c6;font-size:19px}.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}.meta{margin-top:14px;color:var(--mut);font-size:14px}
+.stage{perspective:1500px;margin:54px auto 0;max-width:880px}
+.win{transform-style:preserve-3d;transform:rotateX(var(--rx,10deg)) rotateY(var(--ry,-12deg));transition:transform .15s ease-out;border:1px solid var(--line);border-radius:14px;background:#14141c;box-shadow:0 60px 100px -30px rgba(250,30,78,.45),0 0 0 1px rgba(255,255,255,.03);text-align:left;position:relative}
+.strip{background:#08080c;padding:10px 12px 0;display:flex;gap:4px;border-radius:14px 14px 0 0}.tab{padding:8px 16px;border-radius:10px 10px 0 0;font-size:13px;color:#8b8b9c}.tab.on{background:#191923;color:#fff}.tab i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--acc);margin-right:7px}
+.bar{background:#191923;display:flex;gap:12px;align-items:center;padding:9px 14px;color:#9a9aad;font-size:13px}.omni{flex:1;background:#23232f;border-radius:20px;padding:7px 16px}
+.bm{background:#191923;border-top:1px solid #0c0c12;padding:4px 14px;font-size:12px;color:#9a9aad;display:flex;gap:16px}
+.page{height:230px;text-align:center;padding-top:34px;background:radial-gradient(circle at 50% -10%,rgba(250,30,78,.25),transparent 60%);border-radius:0 0 14px 14px}
+.page .c{font-size:52px;font-weight:200}.page .s{margin:6px auto 20px;width:60%;max-width:380px;background:#1d1d29;border:1px solid #2a2a38;border-radius:24px;padding:9px;color:#7d7d90;font-size:14px}
+.tl{display:flex;gap:14px;justify-content:center}.tl i{width:42px;height:42px;border-radius:12px}
+.chip{position:absolute;background:rgba(21,21,30,.92);border:1px solid var(--line);border-radius:12px;padding:9px 14px;font-size:13px;box-shadow:0 20px 40px -12px #000;backdrop-filter:blur(6px)}
+.c1{top:-26px;right:-18px;transform:translateZ(90px)}.c2{bottom:70px;left:-34px;transform:translateZ(120px)}.c3{bottom:-22px;right:60px;transform:translateZ(70px);color:#ff8aa3}
+section{padding:80px 0;scroll-margin-top:64px}h2{font-size:clamp(28px,4vw,42px);margin:0 0 10px;letter-spacing:-.5px}.lead{color:var(--mut);max-width:640px;margin:0 0 38px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px;perspective:1000px}
+.card{background:linear-gradient(160deg,#181824,#12121a);border:1px solid var(--line);border-radius:16px;padding:24px;transform-style:preserve-3d;transition:transform .15s ease-out,box-shadow .2s;position:relative}
+.card:hover{box-shadow:0 30px 60px -25px rgba(250,30,78,.4)}.card h3{margin:10px 0 6px;font-size:19px;transform:translateZ(26px)}.card p{margin:0;color:var(--mut);font-size:15px;transform:translateZ(12px)}.ic{font-size:30px;transform:translateZ(44px);display:inline-block}
+.rv{opacity:0;transform:translateY(34px);transition:.7s}.rv.on{opacity:1;transform:none}
+.panic{background:linear-gradient(135deg,#2a0a12,#14141c);border:1px solid #4a1824;border-radius:20px;padding:36px;display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center}
+.panic kbd{background:#2a2a38;border-radius:6px;padding:2px 8px}.panic ul{color:#d3b8c0;padding-left:20px;margin:10px 0 0}
+.pill{perspective:700px}.pill div{background:var(--acc);border-radius:18px;padding:34px 20px;text-align:center;font-weight:800;font-size:22px;transform:rotateY(-18deg) rotateX(8deg);box-shadow:-20px 30px 60px -10px rgba(250,30,78,.5);animation:fl 4s ease-in-out infinite}
+@keyframes fl{50%{transform:rotateY(14deg) rotateX(-4deg) translateY(-10px)}}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}.two ul{margin:10px 0 0;padding-left:20px;color:var(--mut)}.yes h3{color:#4ade80}.no h3{color:#fbbf24}
+@media(max-width:780px){.two,.panic{grid-template-columns:1fr}nav a.l{display:none}}
+#download .card{max-width:780px;margin:0 auto;text-align:center;padding:40px 28px}.alt{display:none;margin-top:12px}.alt a{margin:4px}
+.chk{display:none;margin-top:22px;text-align:left;background:#0b0b11;border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:13px}.chk code{word-break:break-all;color:#cfcfe0}
+.steps{display:none;text-align:left;color:var(--mut);font-size:14px;margin-top:20px}.warn{display:none;color:#fbbf24;margin-top:14px}.steps b{color:var(--fg)}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:10px}summary{cursor:pointer;font-weight:600}details p{color:var(--mut);margin:10px 0 0}
+footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--mut);font-size:14px}footer .w{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style></head><body>
+<nav><div class="w"><a class="logo" href="#"><b>N</b>ova</a><a class="l" href="#features">Features</a><a class="l" href="#panic">Panic Wipe</a><a class="l" href="#privacy">Honesty</a><a class="l" href="#faq">FAQ</a><span class="sp"></span><a class="btn s" href="#download">Download</a></div></nav>
+
+<header class="hero"><canvas id="globe"></canvas><div class="w">
+<h1>Browse like <em>nobody's watching.</em></h1>
+<p class="sub">Nova is a fast, Chromium-based browser with tracker blocking, Tor windows, VPN support, download scanning and a one-key Panic Wipe — plus the tools you actually use every day.</p>
+<div class="cta"><a class="btn" href="#download">⬇ Download Nova</a><a class="btn g" href="#features">Explore features</a></div>
+<p class="meta">Free · Windows 10 / 11 (64-bit) · <span class="ver">v1.5.0</span></p>
+<div class="stage" id="stage"><div class="win" id="win" aria-hidden="true">
+<div class="strip"><span class="tab on"><i></i>Nova</span><span class="tab">Docs</span><span class="tab">Mail</span></div>
+<div class="bar"><span>‹ › ⟳</span><div class="omni">🔒 Search privately or type an address</div><span style="color:var(--acc)">🛡 128</span></div>
+<div class="bm"><span>★ Work</span><span>★ News</span><span>★ Reading list</span><span>★ Music</span></div>
+<div class="page"><div class="c">09:41</div><div class="s">Search privately or type an address</div><div class="tl"><i style="background:#25D366"></i><i style="background:#5865F2"></i><i style="background:#1DB954"></i><i style="background:#FF0033"></i><i style="background:#9146FF"></i></div></div>
+<div class="chip c1">🛡 214 trackers blocked</div><div class="chip c2">🧅 Tor window · circuit ready</div><div class="chip c3">🚨 Panic Wipe armed</div></div></div>
+</div></header>
+
+<section id="features"><div class="w"><h2 class="rv">Everything in one browser</h2><p class="lead rv">The tools people usually assemble from extensions and extra apps, working together out of the box.</p>
+<div class="grid">
+<div class="card tilt rv"><div class="ic">🛡</div><h3>Shields</h3><p>Blocks ads, trackers, phishing and malware sites. Strips tracking links, upgrades to HTTPS, rejects cookie banners and protects against fingerprinting. Optional Google Safe Browsing with your own key.</p></div>
+<div class="card tilt rv"><div class="ic">🧅</div><h3>Tor windows</h3><p>Routes a window through Tor with bridges, one-click new identity, Tor-style letterboxing and Safer / Safest levels (WebGL or JavaScript off).</p></div>
+<div class="card tilt rv"><div class="ic">🔒</div><h3>VPN support</h3><p>Use your own provider through a fail-closed proxy profile, or manage a WireGuard tunnel for the whole PC. Nova doesn't run VPN servers.</p></div>
+<div class="card tilt rv"><div class="ic">🦠</div><h3>Download antivirus</h3><p>Every download gets Microsoft Defender scanning, disguised-file checks, optional VirusTotal lookups and a quarantine.</p></div>
+<div class="card tilt rv"><div class="ic">🗂</div><h3>Library</h3><p>Bookmarks bar and manager, searchable history, pinboards, a Flow notes-and-links inbox, downloads manager and per-site permissions.</p></div>
+<div class="card tilt rv"><div class="ic">⌨</div><h3>Power tools</h3><p>Address-bar suggestions, tab search, a command palette, colour-coded tab islands, Easy Files picker, per-site zoom and JavaScript switches.</p></div>
+<div class="card tilt rv"><div class="ic">🎵</div><h3>Sidebar &amp; media</h3><p>Pin WhatsApp, Spotify, Discord, Gmail and more — or add any site. Media controls follow whatever is playing in the browser.</p></div>
+<div class="card tilt rv"><div class="ic">🔑</div><h3>Vault &amp; autofill</h3><p>A master-password vault (AES-256) for passwords, addresses and cards, with phishing-safe autofill and encrypted backups.</p></div>
+<div class="card tilt rv"><div class="ic">🌍</div><h3>Translate</h3><p>Translate any page via Google Translate, or privately with your own Claude key.</p></div>
+<div class="card tilt rv"><div class="ic">🧩</div><h3>Extensions (limited)</h3><p>Runs the content scripts and styles of Chrome-format extensions, plus userscripts and custom CSS mods. No background pages or popups.</p></div>
+<div class="card tilt rv"><div class="ic">👥</div><h3>Profiles</h3><p>Separate profiles with their own history, cookies, bookmarks and settings for work, home or anything else.</p></div>
+<div class="card tilt rv"><div class="ic">⚡</div><h3>Fast &amp; yours</h3><p>RAM, CPU and tab limiters, sleeping tabs, themes, wallpapers, split view, floating video and optional Razer Chroma lighting.</p></div>
+</div></div></section>
+
+<section id="panic" style="background:#09090e"><div class="w"><div class="panic rv"><div><h2>🚨 Panic Wipe</h2>
+<p style="color:#d3b8c0">Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Backspace</kbd> and Nova disappears instantly, then a hidden helper securely erases what it left behind.</p>
+<ul><li>Cookies, cache, site data, history, session, Tor state</li><li>Downloaded files, screenshots and Windows “recent files” traces</li><li>DNS cache flush, plus optional free-space overwrite</li><li><b>Scorched earth</b> mode deletes everything Nova ever stored</li></ul></div>
+<div class="pill"><div>ERASE<br>EVERYTHING</div></div></div>
+<p class="lead rv" style="margin-top:20px">It can't erase what websites, your network or SSD wear-levelling keep — see below.</p></div></section>
+
+<section id="privacy"><div class="w"><h2 class="rv">Honest by design</h2><p class="lead rv">Privacy tools are only worth trusting when they're clear about their limits.</p>
+<div class="two"><div class="card yes rv"><h3>What Nova does</h3><ul><li>No accounts, ads or analytics.</li><li>Blocks trackers and reduces what sites learn about your device.</li><li>Hides your IP through Tor or your own VPN.</li><li>Signed updates, a sandboxed engine and a built-in security checkup.</li></ul></div>
+<div class="card no rv"><h3>What no browser can promise</h3><ul><li>Anonymity if you log in or reuse identifiers.</li><li>Erasing data kept by websites, networks or Windows.</li><li>Tor Browser's full anonymity set — for high-risk needs use Tor Browser or Tails.</li><li>Stopping every unknown threat or zero-day.</li></ul></div></div></div></section>
+
+<section id="download" style="background:#09090e"><div class="w"><div class="card tilt rv"><h2>Get Nova</h2><p class="lead" style="margin:0 auto 24px">Free. Installs for your user account — no admin rights needed.</p>
+<a class="btn" id="dlbtn" href="#">⬇ Download for Windows <span class="ver">v1.5.0</span></a><p class="meta" id="sizeline">Windows 10 / 11 · 64-bit</p>
+<div class="alt" id="alt"><a class="btn g s" id="mac" href="#" style="display:none">macOS (experimental)</a><a class="btn g s" id="lin" href="#" style="display:none">Linux (experimental)</a></div>
+<p class="warn" id="osnote">You're not on Windows — the Windows installer won't run here.</p>
+<div class="chk" id="chk"><b>Verify your download</b> (SHA-256)<br><code id="hash"></code><br><br><span style="color:var(--mut)">PowerShell: <code>Get-FileHash .\NovaSetup.exe</code> — the values must match.</span></div>
+<div class="steps" id="steps"><b>“Windows protected your PC”?</b> This installer isn't code-signed yet, so SmartScreen warns about new apps. After checking the SHA-256 above, click <b>More info → Run anyway</b>.</div></div></div></section>
+
+<section id="faq"><div class="w"><h2 class="rv">Questions</h2><p class="lead rv">Short, honest answers.</p>
+<details><summary>Is Nova free?</summary><p>Yes. No account, subscription or ad network.</p></details>
+<details><summary>Does Nova track me?</summary><p>No analytics or telemetry. Nova only connects out for the pages you visit and for features you use: signed update checks, filter lists, and optional services you switch on (Safe Browsing, VirusTotal, translation, AI).</p></details>
+<details><summary>Is it Tor Browser?</summary><p>No. Nova's Tor window routes traffic through Tor and adds letterboxing and safety levels, but it can't match Tor Browser's anonymity set.</p></details>
+<details><summary>Does Nova include a VPN service?</summary><p>No. It connects to the provider you choose (HTTPS/SOCKS proxy or WireGuard).</p></details>
+<details><summary>Can I use Chrome extensions?</summary><p>Partly. Extensions that work through content scripts and styles run in Nova. Ones that need a background page, popup or toolbar button don't, and the Chrome Web Store isn't supported.</p></details>
+<details><summary>Will Netflix and other DRM video work?</summary><p>Maybe. Nova can reuse Widevine from an installed Chrome or Edge, but that isn't guaranteed, and some H.264 video may not play.</p></details>
+<details><summary>Which systems are supported?</summary><p>Windows 10/11 is the main target. macOS and Linux builds are experimental and may be missing Windows-only features such as Defender scanning.</p></details>
+</div></section>
+
+<footer><div class="w"><span>© <span id="yr"></span> Nova · Built on Chromium (via Qt WebEngine) and Tor.</span><span><a href="#" id="src" style="display:none">Source code</a> <a href="#" id="mail" style="display:none">Contact</a></span></div></footer>
+
+<script>
+/* ===== CONFIGURE ME ===== */
+const CONFIG={version:"1.5.0",downloadUrl:"downloads/NovaSetup.exe",sha256:"",size:"",signed:false,macUrl:"",linuxUrl:"",sourceUrl:"",contact:""};
+const $=i=>document.getElementById(i),RM=matchMedia("(prefers-reduced-motion:reduce)").matches,TOUCH=matchMedia("(hover:none)").matches;
+document.querySelectorAll(".ver").forEach(e=>e.textContent="v"+CONFIG.version);
+$("dlbtn").href=CONFIG.downloadUrl;$("dlbtn").setAttribute("download","NovaSetup.exe");
+if(CONFIG.size)$("sizeline").textContent="Windows 10 / 11 · 64-bit · "+CONFIG.size;
+if(CONFIG.sha256){$("chk").style.display="block";$("hash").textContent=CONFIG.sha256}
+if(!CONFIG.signed)$("steps").style.display="block";
+if(CONFIG.macUrl||CONFIG.linuxUrl)$("alt").style.display="block";
+if(CONFIG.macUrl){$("mac").style.display="inline-flex";$("mac").href=CONFIG.macUrl}
+if(CONFIG.linuxUrl){$("lin").style.display="inline-flex";$("lin").href=CONFIG.linuxUrl}
+if(CONFIG.sourceUrl){$("src").style.display="inline";$("src").href=CONFIG.sourceUrl}
+if(CONFIG.contact){$("mail").style.display="inline";$("mail").href="mailto:"+CONFIG.contact}
+if(!/Windows/i.test(navigator.userAgent))$("osnote").style.display="block";
+$("yr").textContent=new Date().getFullYear();
+/* scroll reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll(".rv").forEach(e=>io.observe(e));
+/* 3D tilt: hero window follows the pointer, cards tilt with the cursor */
+if(!RM&&!TOUCH){
+ const st=$("stage"),win=$("win");
+ addEventListener("pointermove",e=>{const r=st.getBoundingClientRect(),x=(e.clientX-(r.left+r.width/2))/innerWidth,y=(e.clientY-(r.top+r.height/2))/innerHeight;
+  win.style.setProperty("--ry",(x*28).toFixed(1)+"deg");win.style.setProperty("--rx",(-y*22).toFixed(1)+"deg")});
+ document.querySelectorAll(".tilt").forEach(c=>{c.addEventListener("pointermove",e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+  c.style.transform="perspective(800px) rotateY("+(x*14).toFixed(1)+"deg) rotateX("+(-y*14).toFixed(1)+"deg) scale(1.02)"});
+  c.addEventListener("pointerleave",()=>c.style.transform="")});
+}
+/* rotating 3D globe of linked nodes (no libraries) */
+(function(){const cv=$("globe"),g=cv.getContext("2d"),N=190,P=[];let W,H,a=0,vis=true;
+ for(let i=0;i<N;i++){const y=1-2*(i+.5)/N,r=Math.sqrt(1-y*y),t=Math.PI*(3-Math.sqrt(5))*i;P.push([Math.cos(t)*r,y,Math.sin(t)*r])}
+ function size(){const d=devicePixelRatio||1;W=cv.clientWidth;H=cv.clientHeight;cv.width=W*d;cv.height=H*d;g.setTransform(d,0,0,d,0,0)}
+ function draw(){if(!vis)return;g.clearRect(0,0,W,H);const R=Math.min(W,H)*.62,cx=W/2,cy=H*.52,ca=Math.cos(a),sa=Math.sin(a),pr=[];
+  for(const p of P){const x=p[0]*ca+p[2]*sa,z=-p[0]*sa+p[2]*ca,k=1/(1.9-z*.55);pr.push([cx+x*R*k,cy+p[1]*R*k,z])}
+  g.lineWidth=.6;for(let i=0;i<N;i++)for(let j=i+1;j<N;j++){const dx=pr[i][0]-pr[j][0],dy=pr[i][1]-pr[j][1],d=dx*dx+dy*dy;
+   if(d<2600&&pr[i][2]>-.2&&pr[j][2]>-.2){g.strokeStyle="rgba(250,30,78,"+(.28*(1-d/2600))+")";g.beginPath();g.moveTo(pr[i][0],pr[i][1]);g.lineTo(pr[j][0],pr[j][1]);g.stroke()}}
+  for(const q of pr){const o=.25+.75*((q[2]+1)/2);g.fillStyle="rgba(255,120,150,"+o.toFixed(2)+")";g.beginPath();g.arc(q[0],q[1],1.2+1.6*o,0,6.3);g.fill()}
+  if(!RM)a+=.0032;requestAnimationFrame(draw)}
+ new IntersectionObserver(e=>{vis=e[0].isIntersecting;if(vis)draw()}).observe(cv);addEventListener("resize",size);size();draw()})();
+</script></body></html>
